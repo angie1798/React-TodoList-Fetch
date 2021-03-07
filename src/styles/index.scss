@@ -35,4 +35,10 @@ small{
 .fas{
     float: right;
     color:red;
+    visibility: hidden;
+}
+#distintor:hover{
+    .fas{
+        visibility: visible;
+    }
 }

@@ -4,21 +4,24 @@ export const Todo = () => {
 	let [counter, setCounter] = useState(0);
 	const [tasks, setTasks] = useState("");
 	const [list, setList] = useState([]);
-	const [state, setState] = useState("");
+	let count = 0;
 
-	const handler = event => {
-		setState(event.key);
-		if (state == "Enter") {
-			agregar();
-		}
-	};
 	function eliminar() {
 		setCounter(counter - 1);
 	}
 
-	function agregar() {
+	function agregar(e) {
+		setTasks(e);
+	}
+	const agregarLista = e => {
+		if (tasks != "") {
+			if (e.key == "Enter") {
+				setCounter(counter + 1);
+			}
+		}
+	};
+	function agregar2() {
 		setList([...list, tasks]);
-		setCounter(counter + 1);
 	}
 
 	return (
@@ -30,15 +33,20 @@ export const Todo = () => {
 						className="form-control"
 						id="todo"
 						placeholder="What needs to be done?"
-						onChange={e => setTasks(e.target.value)}
-						onKeyPress={e => handler(e)}
+						onChange={e => agregar(e.target.value)}
+						onKeyPress={agregarLista}
 						value={tasks}></input>
 				</li>
 				{list.map((item, index) => {
 					return (
-						<li key={index} className="list-group-item">
+						<li
+							key={index}
+							className="list-group-item"
+							id="distintor">
 							{item}
-							<i className="fas fa-times" onClick={eliminar}></i>
+							<i
+								className="fas fa-times"
+								onClick={eliminar()}></i>
 						</li>
 					);
 				})}
