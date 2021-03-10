@@ -4,11 +4,12 @@ export const Todo = () => {
 	let [counter, setCounter] = useState(0);
 	const [tasks, setTasks] = useState("");
 	const [list, setList] = useState([]);
-	let count = 0;
 
-	function eliminar() {
+	const deleteTask = indexDelete => {
+		let resultado = list.filter((tasks, index) => index != indexDelete);
+		setList(resultado);
 		setCounter(counter - 1);
-	}
+	};
 
 	function agregar(e) {
 		setTasks(e);
@@ -17,12 +18,11 @@ export const Todo = () => {
 		if (tasks != "") {
 			if (e.key == "Enter") {
 				setCounter(counter + 1);
+				setList([...list, tasks]);
+				setTasks("");
 			}
 		}
 	};
-	function agregar2() {
-		setList([...list, tasks]);
-	}
 
 	return (
 		<div>
@@ -46,7 +46,9 @@ export const Todo = () => {
 							{item}
 							<i
 								className="fas fa-times"
-								onClick={eliminar()}></i>
+								onClick={() => {
+									deleteTask(index);
+								}}></i>
 						</li>
 					);
 				})}
