@@ -19,7 +19,7 @@
 h1{
     margin-bottom: 50px;
     font-weight: bold;
-    color: fuchsia ;
+    color: #a8e8d0 ;
 }
 .list-group, #todo::placeholder{
     font-size: 25px;
@@ -34,11 +34,58 @@ small{
 }
 .fas{
     float: right;
-    color:red;
+    color:#c00111;
     visibility: hidden;
 }
 #distintor:hover{
     .fas{
         visibility: visible;
     }
+    background-color: #ffd2b5;
+}
+
+.btn {
+    margin-top: 20px;
+    margin-left: 10px;
+    font-size: 20px;
+}
+#hoja1{
+    width: 97%;
+    height: 7px;
+    background-color: #fafafa;
+    margin: 0 auto;
+    border: 1px solid #e0e0e0;
+    border-top: none;
+}
+#hoja2{
+    width: 95%;
+    height: 7px;
+    background-color: #f6f6f6;
+    margin: 0 auto;
+    border: 1px solid #e0e0e0;
+    border-top: none;
+}
+.btn-rosa{
+    background-color: rgb(254, 198, 199);
+    border-color: #FAB1B2;
+    color: black;
+}
+.btn-secondary{
+    background-color: #dcedc1;
+    border-color: #C7E795;
+    color: black;
+}
+.btn-secondary:hover, #del:active, #del:visited, #del:focus{
+background-color: #dcedc1;
+    border-color: #C7E795;
+    color: gray;
+    box-shadow: 0 0 0 0.2rem rgba(199, 231, 149, 0.25);
+}
+.btn-rosa:hover, .btn-rosa:active, .btn-rosa:visited, .btn-rosa:focus{
+color:gray;
+background-color: #fec6c7;
+box-shadow: 0 0 0 0.2rem rgb(250, 177, 178, 0.25);
+}
+body{
+background-color: rgba(255,254,198,255);
 }
